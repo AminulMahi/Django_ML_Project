@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Blog page</title>
+    <link rel="stylesheet" href="{% static '/blog/blog_style.css' %}">
+</head>
+<body>
+    <section id="blog">
+        <div class="blog-heading">
+            <span>My  recent posts</span>
+            <h3>My Blog</h3>
+        </div>
+        <form>
+        <div class="blog-container">
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="{% static '/blog/image/pic1.webp' %}" alt="blog">
+                </div>
+
+                <div class="blog-text">
+                    <span>3 May 2023/Python CRUD</span>
+                     <a href="blog-title">What Has Happened in CRUD opration in Django?</a>
+                     <p>Django is based on MVT (Model View Template) architecture and revolves around CRUD (Create, Retrieve, Update, Delete) operations</p>
+                     <a href="#">Read More</a>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
