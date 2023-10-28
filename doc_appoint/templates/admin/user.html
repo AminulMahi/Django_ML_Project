@@ -3,15 +3,16 @@
 <html lang="en">
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
-
+<style>
+	.col-md-10 input{
+		margin-bottom: 10px;	}
+</style>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 	<title>DocApp - role</title>
 
-	<!--modal from bootstrap-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{% static 'admin/assets/img/favicon.png' %}">
 
@@ -26,9 +27,9 @@
 
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="{% static 'admin/assets/css/style.css' %}">
-	<link rel="stylesheet" href="{% static 'admin/assets/css/style1.css' %}">
 	
-
+	<script src="{% static 'ckeditor/ckeditor-init.js' %}"></script> <!--add-->
+    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script> <!--add-->
 	<!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
@@ -206,7 +207,7 @@
 							<a href="{% url 'user_index' %}"><i class="fe fe-home"></i> <span>User</span></a>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="fe fe-document"></i> <span>Reports</span> <span
+							<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span
 									class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="invoice-report.html">Invoice Reports</a></li>
@@ -227,10 +228,10 @@
 				<div class="page-header">
 					<div class="row">
 						<div class="col">
-							<h3 class="page-title">Role Inputs</h3>
+							<h3 class="page-title">User Inputs</h3>
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-								<li class="breadcrumb-item active">Role</li>
+								<li class="breadcrumb-item active">User</li>
 							</ul>
 						</div>
 					</div>
@@ -241,15 +242,30 @@
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title">Role</h4>
+								<h4 class="card-title">User</h4>
 							</div>
 							<div class="card-body">
-								<form action="{% url 'role_index' %}" method="POST">
+								<form action="" method="POST">
 									{% csrf_token %}
 									<div class="form-group row">
-										<label class="col-form-label col-md-2">Text Input</label>
+										<label class="col-form-label col-md-2">Full Name</label>
 										<div class="col-md-10">
 											<input name="name" type="text" class="form-control">
+										</div>
+										<label class="col-form-label col-md-2">Email</label>
+										<div class="col-md-10">
+											<input name="email" type="text" class="form-control">
+										</div>
+										<label class="col-form-label col-md-2">Phone</label>
+										<div class="col-md-10">
+											<input name="phone" type="text" class="form-control">
+										</div>
+										<label class="col-form-label col-md-2">Address</label>
+										<div class="col-md-10">
+											<textarea name="address" id="" cols="30" rows="10"></textarea>
+											<script>  
+												CKEDITOR.replace('address');  // textarea id and script id should be same.
+											</script>
 										</div>
 										<div class="input-group-append">
 											<button class="btn btn-primary" type="submit">Button</button>
@@ -302,32 +318,6 @@
 		</div>
 		<!-- /Main Wrapper -->
 
-		<!--edit modal-->
-		{% for i in all_data %}
-		<div id="editEmployeeModal-{{forloop.counter}}" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form action="{% url 'update_index' i.id %}" method="post">
-						{% csrf_token %}
-						<div class="modal-header">						
-							<h4 class="modal-title">Edit Employee</h4>
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						</div>
-						<div class="modal-body">					
-							<div class="form-group">
-								<label>Name</label>
-								<input name="name" value="{{i.name}}" type="text" class="form-control" required>
-							</div>					
-						</div>
-						<div class="modal-footer">
-							<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-							<input type="submit" class="btn btn-info" value="update">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		{% endfor %}
 		<!-- jQuery -->
 		<script src="{% static 'admin/assets/js/jquery-3.2.1.min.js' %}"></script>
 
@@ -344,7 +334,7 @@
 
 		<!-- Custom JS -->
 		<script src="{% static 'admin/assets/js/script.js' %}"></script>
-		<script src="{% static 'admin/assets/js/script1.js' %}"></script>
+		<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script> <!--add-->
 
 </body>
 

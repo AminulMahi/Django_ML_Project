@@ -38,7 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'roleapp',
+    'userapp',
+    'ckeditor',
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',  # You can customize the toolbar buttons here.
+        'height': 300,      # Set the initial height of the CKEditor.
+        # ... Other options ...
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
